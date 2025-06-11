@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class TerrainController extends AbstractController
 {
-    #[Route('/getAllTerrains', name: 'app_terrain')]
+    #[Route('/api/getAllTerrains', name: 'app_terrain')]
     public function getAll(TerrainRepository $terrainRepository): Response
     {
         $terrain = $terrainRepository->findAll();

@@ -1,7 +1,6 @@
 <?php
 
 use App\Kernel;
-echo "aa";
 require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
 return function (array $context) {

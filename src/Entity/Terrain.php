@@ -6,6 +6,7 @@ use App\Repository\TerrainRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: TerrainRepository::class)]
 class Terrain
@@ -13,42 +14,55 @@ class Terrain
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['terrain'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['terrain'])]
     private ?string $adresse = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['terrain'])]
     private ?string $ville = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['terrain'])]
     private ?string $code_postal = null;
 
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?float $latitude = null;
 
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?float $longitude = null;
 
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['terrain'])]
     private ?string $sol = null;
 
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?int $nb_panier = null;
 
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?bool $filet = null;
 
     #[ORM\Column]
+    #[Groups(['terrain'])]
     private ?bool $spectateur = null;
 
     #[ORM\ManyToOne(inversedBy: 'terrains')]
+    #[Groups(['terrain'])]
     private ?User $created_by = null;
 
     /**

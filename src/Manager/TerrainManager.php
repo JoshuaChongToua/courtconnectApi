@@ -27,6 +27,7 @@ class TerrainManager
         $newTerrain->setNbPanier($terrainDTO->nbPanier);
         $newTerrain->setTypeFilet($terrainDTO->typeFilet);
         $newTerrain->setTypePanier($terrainDTO->typePanier);
+        $newTerrain->setUsure($terrainDTO->usure);
         $newTerrain->setSpectateur($terrainDTO->spectateur);
         $newTerrain->setCreatedBy($terrainDTO->createdBy);
         $newTerrain->setEtat(0);

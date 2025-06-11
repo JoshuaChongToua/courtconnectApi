@@ -53,6 +53,7 @@ class TerrainController extends AbstractController
         $dto->spectateur = $data['spectateur'];
         $dto->createdBy = $user;
         $dto->remarque = $data['remarque'];
+        $dto->usure = $data['usure'];
 
         $terrain = $terrainManager->addTerrain($dto);
 
@@ -60,6 +61,6 @@ class TerrainController extends AbstractController
             return $this->json(['message' => 'Erreur lors de la création du terrain.'], 500);
         }
 
-        return $this->json($terrain, 201, [], ['groups' => ['terrain']]);
+        return $this->json($terrain, 200, [], ['groups' => ['terrain']]);
     }
 }

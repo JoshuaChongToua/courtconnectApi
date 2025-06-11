@@ -86,6 +86,9 @@ class Terrain
     #[ORM\Column(length: 255)]
     private ?string $type_panier = null;
 
+    #[ORM\Column]
+    private ?int $usure = null;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -327,6 +330,18 @@ class Terrain
     public function setTypePanier(string $type_panier): static
     {
         $this->type_panier = $type_panier;
+
+        return $this;
+    }
+
+    public function getUsure(): ?int
+    {
+        return $this->usure;
+    }
+
+    public function setUsure(int $usure): static
+    {
+        $this->usure = $usure;
 
         return $this;
     }

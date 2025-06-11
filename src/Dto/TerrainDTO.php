@@ -20,6 +20,7 @@ class TerrainDTO
     public $createdBy;
     public $etat;
     public $remarque;
+    public $usure;
 
 
 }

@@ -35,7 +35,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    #[Groups(['terrain'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -71,6 +70,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\ManyToMany(targetEntity: Terrain::class, mappedBy: 'favori')]
     private Collection $favori;
+
+    #[ORM\Column]
+    private ?int $trustability = null;
 
     public function __construct()
     {
@@ -283,6 +285,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->favori->removeElement($favori)) {
             $favori->removeFavori($this);
         }
+
+        return $this;
+    }
+
+    public function getTrustability(): ?int
+    {
+        return $this->trustability;
+    }
+
+    public function setTrustability(int $trustability): static
+    {
+        $this->trustability = $trustability;
 
         return $this;
     }

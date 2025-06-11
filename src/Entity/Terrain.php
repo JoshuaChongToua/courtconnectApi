@@ -55,7 +55,7 @@ class Terrain
 
     #[ORM\Column]
     #[Groups(['terrain'])]
-    private ?bool $filet = null;
+    private ?string $type_filet = null;
 
     #[ORM\Column]
     #[Groups(['terrain'])]
@@ -76,6 +76,15 @@ class Terrain
      */
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favori')]
     private Collection $favori;
+
+    #[ORM\Column(length: 255)]
+    private ?string $etat = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $remarque = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $type_panier = null;
 
     public function __construct()
     {
@@ -196,14 +205,14 @@ class Terrain
         return $this;
     }
 
-    public function isFilet(): ?bool
+    public function getTypeFilet(): ?bool
     {
-        return $this->filet;
+        return $this->type_filet;
     }
 
-    public function setFilet(bool $filet): static
+    public function setTypeFilet(string $filet): static
     {
-        $this->filet = $filet;
+        $this->type_filet = $filet;
 
         return $this;
     }
@@ -282,6 +291,42 @@ class Terrain
     public function removeFavori(User $favori): static
     {
         $this->favori->removeElement($favori);
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): static
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getRemarque(): ?string
+    {
+        return $this->remarque;
+    }
+
+    public function setRemarque(string $remarque): static
+    {
+        $this->remarque = $remarque;
+
+        return $this;
+    }
+
+    public function getTypePanier(): ?string
+    {
+        return $this->type_panier;
+    }
+
+    public function setTypePanier(string $type_panier): static
+    {
+        $this->type_panier = $type_panier;
 
         return $this;
     }

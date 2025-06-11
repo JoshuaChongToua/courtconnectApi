@@ -45,6 +45,9 @@ class Event
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'events')]
     private Collection $joueurs;
 
+    #[ORM\Column(length: 255)]
+    private ?string $etat = null;
+
     public function __construct()
     {
         $this->joueurs = new ArrayCollection();
@@ -171,6 +174,18 @@ class Event
     public function removeJoueur(User $joueur): static
     {
         $this->joueurs->removeElement($joueur);
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): static
+    {
+        $this->etat = $etat;
 
         return $this;
     }

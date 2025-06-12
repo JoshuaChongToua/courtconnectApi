@@ -27,7 +27,7 @@ class TerrainController extends AbstractController
     }
 
 
-    #[Route('/api/addTerrain', name: 'app_terrain', methods: ['POST'])]
+    #[Route('/api/addTerrain', name: 'app__add_terrain', methods: ['POST'])]
     public function addTerrain(Request $request, TerrainManager $terrainManager): JsonResponse
     {
         $data = json_decode($request->getContent(), true);

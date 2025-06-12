@@ -89,6 +89,9 @@ class Terrain
     #[ORM\Column]
     private ?int $usure = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -342,6 +345,18 @@ class Terrain
     public function setUsure(int $usure): static
     {
         $this->usure = $usure;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

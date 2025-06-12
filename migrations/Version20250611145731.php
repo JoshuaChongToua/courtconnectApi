@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250611142722 extends AbstractMigration
+final class Version20250611145731 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,7 +27,7 @@ final class Version20250611142722 extends AbstractMigration
             CREATE TABLE event_user (event_id INT NOT NULL, user_id INT NOT NULL, INDEX IDX_92589AE271F7E88B (event_id), INDEX IDX_92589AE2A76ED395 (user_id), PRIMARY KEY(event_id, user_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE terrain (id INT AUTO_INCREMENT NOT NULL, created_by_id INT DEFAULT NULL, nom VARCHAR(255) NOT NULL, adresse VARCHAR(255) NOT NULL, ville VARCHAR(255) NOT NULL, code_postal VARCHAR(255) NOT NULL, latitude DOUBLE PRECISION NOT NULL, longitude DOUBLE PRECISION NOT NULL, created_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)', sol VARCHAR(255) NOT NULL, nb_panier INT NOT NULL, type_filet VARCHAR(255) NOT NULL, spectateur TINYINT(1) NOT NULL, etat VARCHAR(255) NOT NULL, remarque VARCHAR(255) NOT NULL, type_panier VARCHAR(255) NOT NULL, usure INT NOT NULL, INDEX IDX_C87653B1B03A8386 (created_by_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+            CREATE TABLE terrain (id INT AUTO_INCREMENT NOT NULL, created_by_id INT DEFAULT NULL, nom VARCHAR(255) NOT NULL, adresse VARCHAR(255) NOT NULL, ville VARCHAR(255) NOT NULL, code_postal VARCHAR(255) NOT NULL, latitude DOUBLE PRECISION NOT NULL, longitude DOUBLE PRECISION NOT NULL, created_at DATETIME NOT NULL COMMENT '(DC2Type:datetime_immutable)', sol VARCHAR(255) NOT NULL, nb_panier INT NOT NULL, type_filet VARCHAR(255) NOT NULL, spectateur TINYINT(1) NOT NULL, etat VARCHAR(255) NOT NULL, remarque VARCHAR(255) NOT NULL, type_panier VARCHAR(255) NOT NULL, usure INT NOT NULL, image VARCHAR(255) NOT NULL, INDEX IDX_C87653B1B03A8386 (created_by_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
         $this->addSql(<<<'SQL'
             CREATE TABLE terrain_user (terrain_id INT NOT NULL, user_id INT NOT NULL, INDEX IDX_77F66E1E8A2D8B41 (terrain_id), INDEX IDX_77F66E1EA76ED395 (user_id), PRIMARY KEY(terrain_id, user_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB

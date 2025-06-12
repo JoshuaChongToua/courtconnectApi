@@ -51,7 +51,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     #[Groups(['terrain'])]
-    private ?string $photo_profil = null;
+    private ?string $image_url = null;
 
     /**
      * @var Collection<int, Terrain>

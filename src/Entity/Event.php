@@ -12,7 +12,7 @@ class Event
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
@@ -21,10 +21,10 @@ class Event
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column]
-    private ?\DateTime $date_heure = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $date_heure = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $max_joueurs = null;
 
     #[ORM\Column(length: 255)]

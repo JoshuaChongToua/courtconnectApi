@@ -13,7 +13,7 @@ class Terrain
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     #[Groups(['terrain'])]
     private ?int $id = null;
 
@@ -37,11 +37,11 @@ class Terrain
     #[Groups(['terrain'])]
     private ?float $latitude = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'float')]
     #[Groups(['terrain'])]
     private ?float $longitude = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'datetime')]
     #[Groups(['terrain'])]
     private ?\DateTimeImmutable $created_at = null;
 
@@ -49,15 +49,15 @@ class Terrain
     #[Groups(['terrain'])]
     private ?string $sol = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'float')]
     #[Groups(['terrain'])]
     private ?int $nb_panier = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'float')]
     #[Groups(['terrain'])]
     private ?string $type_filet = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'boolean')]
     #[Groups(['terrain'])]
     private ?bool $spectateur = null;
 
@@ -86,11 +86,11 @@ class Terrain
     #[ORM\Column(length: 255)]
     private ?string $type_panier = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $usure = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $image = null;
+    private ?string $image_url = null;
 
     public function __construct()
     {
@@ -349,14 +349,14 @@ class Terrain
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImageUrl(): ?string
     {
-        return $this->image;
+        return $this->image_url;
     }
 
-    public function setImage(string $image): static
+    public function setImageUrl(string $image): static
     {
-        $this->image = $image;
+        $this->image_url = $image;
 
         return $this;
     }
